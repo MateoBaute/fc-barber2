@@ -9,6 +9,8 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "mercadopago": "^3.1.0",
+    "mysql2": "^3.22.4",
     "next": "16.2.6",
     "react": "19.2.4",
     "react-dom": "19.2.4"
