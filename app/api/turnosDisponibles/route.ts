@@ -1,12 +1,14 @@
 import { NextResponse } from "next/server";
 import db from "@/lib/db";
 
+export const runtime = 'nodejs';
+
 export async function POST(request: Request) {
-    try{
+    try {
         const body = await request.json();
         const { fecha } = body;
 
-        if (!fecha) {
+        if (!fecha || typeof fecha !== 'string') {
             return NextResponse.json({
                 success: false,
                 message: 'Falta la fecha en la petición.'
@@ -26,9 +28,11 @@ export async function POST(request: Request) {
             horariosOcupados,
             success: true
         }, { status: 200 });
-    }catch(error){
+    } catch (error) {
+        console.error('Error en /api/turnosDisponibles:', error);
         return NextResponse.json({
-            success: false
+            success: false,
+            message: error instanceof Error ? error.message : 'Error interno del servidor.'
         }, { status: 500 });
     }
 }
