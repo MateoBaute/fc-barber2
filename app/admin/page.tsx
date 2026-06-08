@@ -122,7 +122,9 @@ export default function AdminPanel() {
                             })}</div>
                             <div className="text-yellow-500">{t.horario}</div>
                             <div>
-                                <button onClick={() => eliminarTurno(t.id)} className=' b-red color-white'> eliminar turno</button>
+                                <button onClick={() => eliminarTurno(t.id)}  aria-label={`Eliminar turno ${t.id}`}
+                                    className="px-3 py-1 bg-transparent hover:bg-red-600/10 text-red-500 hover:text-red-600 border border-transparent hover:border-red-600 rounded text-sm font-medium transition-colors duration-150"
+                                > Eliminar turno</button>
                             </div>
                         </div>
                     ))

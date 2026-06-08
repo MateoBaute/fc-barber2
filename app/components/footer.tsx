@@ -67,10 +67,10 @@ export default function Footer() {
                     <div className="space-y-4">
                         <h4 className="text-lg font-bold text-yellow-400">Contacto</h4>
                         <div className="space-y-2 text-sm text-gray-400">
-                            <p>Calle Principal 123</p>
-                            <p>+598 2 1234 5678</p>
-                            <p>info@fcbarber.com</p>
-                            <p>Lun-Sab: 9:00-19:00</p>
+                            <p>📍 Calle Principal 123</p>
+                            <p>📞 +598 2 1234 5678</p>
+                            <p>✉️ info@fcbarber.com</p>
+                            <p>⏰ Lun-Sab: 9:00-19:00</p>
                         </div>
                     </div>
                 </div>
@@ -79,7 +79,7 @@ export default function Footer() {
                 <div className="border-t border-yellow-500/20 pt-8 text-center text-gray-500 text-sm space-y-2">
                     <p>© {currentYear} FC Barber. Todos los derechos reservados.</p>
                     <p className="text-xs">
-                        Hecho con ❤️ | 
+                        Hecho por Mateo Baute | 
                         <Link href="#" className="text-yellow-500 hover:text-yellow-400 mx-1">Privacidad</Link>
                         | 
                         <Link href="#" className="text-yellow-500 hover:text-yellow-400 mx-1">Términos</Link>
