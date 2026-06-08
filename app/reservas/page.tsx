@@ -18,17 +18,14 @@ export default function Reservas(){
                 {/* Info Section */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-slide-up">
                     <div className="text-center p-6 bg-gradient-to-br from-yellow-900/20 to-black border border-yellow-500/30 rounded-lg hover:border-yellow-500 transition duration-300">
-                        <div className="text-4xl mb-3">⏰</div>
                         <h3 className="text-lg font-bold text-yellow-400 mb-2">Horarios</h3>
                         <p className="text-sm text-gray-300">Lun-Sab: 9:00 - 19:00<br />Dom: 10:00 - 14:00</p>
                     </div>
                     <div className="text-center p-6 bg-gradient-to-br from-yellow-900/20 to-black border border-yellow-500/30 rounded-lg hover:border-yellow-500 transition duration-300">
-                        <div className="text-4xl mb-3">💳</div>
                         <h3 className="text-lg font-bold text-yellow-400 mb-2">Pago Seguro</h3>
                         <p className="text-sm text-gray-300">Mercado Pago<br />100% seguro y confiable</p>
                     </div>
                     <div className="text-center p-6 bg-gradient-to-br from-yellow-900/20 to-black border border-yellow-500/30 rounded-lg hover:border-yellow-500 transition duration-300">
-                        <div className="text-4xl mb-3">✓</div>
                         <h3 className="text-lg font-bold text-yellow-400 mb-2">Confirmación</h3>
                         <p className="text-sm text-gray-300">Recibirás confirmación<br />por email en 24h</p>
                     </div>

@@ -105,36 +105,36 @@ export default function FormReservas() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 bg-gradient-to-br from-gray-800/30 to-black border border-yellow-500/20 rounded-xl">
                     <div className="relative group">
-                        <label className="block text-yellow-400 font-semibold mb-3 text-sm uppercase tracking-wider">👤 Nombre Completo</label>
+                        <label className="block text-yellow-400 font-semibold mb-3 text-sm uppercase tracking-wider">Nombre Completo</label>
                         <input 
                             value={nombre} 
                             onChange={(e) => setNombre(e.target.value)} 
                             type="text" 
-                            placeholder="Mateo Baute" 
+                            placeholder="Ingrese sun nombre" 
                             className="w-full px-4 py-3 bg-gray-900/50 border-2 border-yellow-500/20 rounded-lg text-gray-300 placeholder-gray-600 focus:border-yellow-500 focus:bg-gray-900/80 focus:shadow-lg focus:shadow-yellow-500/30 outline-none transition duration-300 hover:border-yellow-500/40 group-hover:border-yellow-500/40"
                         />
                         <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-yellow-600 group-focus-within:w-full transition-all duration-300 rounded-full"></div>
                     </div>
 
                     <div className="relative group">
-                        <label className="block text-yellow-400 font-semibold mb-3 text-sm uppercase tracking-wider">📧 Email</label>
+                        <label className="block text-yellow-400 font-semibold mb-3 text-sm uppercase tracking-wider">Email</label>
                         <input 
                             value={email} 
                             onChange={(e) => setEmail(e.target.value)} 
                             type="email" 
-                            placeholder="tu@email.com" 
+                            placeholder="Ingrese su email" 
                             className="w-full px-4 py-3 bg-gray-900/50 border-2 border-yellow-500/20 rounded-lg text-gray-300 placeholder-gray-600 focus:border-yellow-500 focus:bg-gray-900/80 focus:shadow-lg focus:shadow-yellow-500/30 outline-none transition duration-300 hover:border-yellow-500/40 group-hover:border-yellow-500/40"
                         />
                         <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-yellow-600 group-focus-within:w-full transition-all duration-300 rounded-full"></div>
                     </div>
 
                     <div className="relative group">
-                        <label className="block text-yellow-400 font-semibold mb-3 text-sm uppercase tracking-wider">📱 Teléfono</label>
+                        <label className="block text-yellow-400 font-semibold mb-3 text-sm uppercase tracking-wider">Teléfono</label>
                         <input 
                             value={telefono} 
                             onChange={(e) => setTelefono(e.target.value)} 
                             type="tel" 
-                            placeholder="+598 9 1234 5678" 
+                            placeholder="Su número de teléfono pero sin el 0" 
                             className="w-full px-4 py-3 bg-gray-900/50 border-2 border-yellow-500/20 rounded-lg text-gray-300 placeholder-gray-600 focus:border-yellow-500 focus:bg-gray-900/80 focus:shadow-lg focus:shadow-yellow-500/30 outline-none transition duration-300 hover:border-yellow-500/40 group-hover:border-yellow-500/40"
                         />
                         <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-yellow-600 group-focus-within:w-full transition-all duration-300 rounded-full"></div>
@@ -163,7 +163,7 @@ export default function FormReservas() {
 
                     {horasDisponibles.length > 0 ? (
                         <div className="p-6 bg-gradient-to-br from-gray-800/30 to-black border border-yellow-500/20 rounded-xl space-y-4">
-                            <p className="text-gray-400 text-sm">Horarios disponibles para {fecha}</p>
+                            <p className="text-gray-400 text-sm">Horarios disponibles</p>
                             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
                                 {horasDisponibles.map((h, index) => (
                                     <button 
@@ -185,10 +185,8 @@ export default function FormReservas() {
                         </div>
                     ) : (
                         <div className="p-8 bg-gradient-to-br from-yellow-900/20 to-black border-2 border-yellow-500/50 rounded-xl text-center space-y-3 animate-fade-in">
-                            <div className="text-4xl mb-3">⏰</div>
                             <p className="font-bold text-yellow-300 text-lg">No hay horarios disponibles</p>
-                            <p className="text-yellow-200 text-sm">Para la fecha seleccionada: <span className="font-semibold">{fecha}</span></p>
-                            <p className="text-gray-400 text-sm">Por favor, elige otra fecha para ver horarios disponibles.</p>
+                            <p className="text-yellow-200 text-sm">Para la fecha seleccionada, por favor elige otra fecha.</p>
                         </div>
                     )}
                 </div>
@@ -207,27 +205,27 @@ export default function FormReservas() {
                     <div className="p-6 bg-gradient-to-r from-yellow-900/30 to-black border-2 border-yellow-500/50 rounded-xl space-y-4 shadow-lg shadow-yellow-500/20">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <p className="text-yellow-400 text-sm uppercase tracking-widest font-semibold">👤 Nombre</p>
+                                <p className="text-yellow-400 text-sm uppercase tracking-widest font-semibold">Nombre</p>
                                 <p className="text-gray-200 text-lg font-bold">{nombre}</p>
                             </div>
                             <div className="space-y-2">
-                                <p className="text-yellow-400 text-sm uppercase tracking-widest font-semibold">📧 Email</p>
+                                <p className="text-yellow-400 text-sm uppercase tracking-widest font-semibold">Email</p>
                                 <p className="text-gray-200 text-lg font-bold break-all">{email}</p>
                             </div>
                             <div className="space-y-2">
-                                <p className="text-yellow-400 text-sm uppercase tracking-widest font-semibold">📱 Teléfono</p>
+                                <p className="text-yellow-400 text-sm uppercase tracking-widest font-semibold">Teléfono</p>
                                 <p className="text-gray-200 text-lg font-bold">{telefono}</p>
                             </div>
                             <div className="space-y-2">
-                                <p className="text-yellow-400 text-sm uppercase tracking-widest font-semibold">📅 Fecha</p>
+                                <p className="text-yellow-400 text-sm uppercase tracking-widest font-semibold">Fecha</p>
                                 <p className="text-gray-200 text-lg font-bold">{fecha}</p>
                             </div>
                             <div className="space-y-2">
-                                <p className="text-yellow-400 text-sm uppercase tracking-widest font-semibold">⏱️ Horario</p>
+                                <p className="text-yellow-400 text-sm uppercase tracking-widest font-semibold">Horario</p>
                                 <p className="text-gray-200 text-lg font-bold">{horario} hs</p>
                             </div>
                             <div className="space-y-2">
-                                <p className="text-yellow-400 text-sm uppercase tracking-widest font-semibold">💰 Monto</p>
+                                <p className="text-yellow-400 text-sm uppercase tracking-widest font-semibold">Monto</p>
                                 <p className="text-yellow-400 text-lg font-bold">$300</p>
                             </div>
                         </div>
@@ -252,12 +250,10 @@ export default function FormReservas() {
                     <div className="relative z-10 flex items-center justify-center space-x-2">
                         {loading ? (
                             <>
-                                <span className="inline-block animate-spin">⏳</span>
-                                <span>Procesando...</span>
+                                <span className="inline-block">Procesando...</span>
                             </>
                         ) : (
                             <>
-                                <span>💳</span>
                                 <span>Confirmar Reserva - $300</span>
                             </>
                         )}
@@ -269,7 +265,7 @@ export default function FormReservas() {
 
                 {/* Nota de seguridad */}
                 <div className="p-6 bg-gradient-to-br from-green-900/20 to-black border-2 border-green-500/30 rounded-xl space-y-3 text-center">
-                    <div className="text-3xl mb-2">🔒</div>
+                    <h3 className="text-lg font-bold text-green-400">Reserva Segura</h3>
                     <p className="text-green-300 font-semibold">Pago 100% Seguro</p>
                     <p className="text-gray-400 text-sm">Tu información está protegida</p>
                     <p className="text-gray-500 text-xs">El pago se procesa a través de Mercado Pago</p>

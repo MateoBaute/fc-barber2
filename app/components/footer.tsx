@@ -67,10 +67,10 @@ export default function Footer() {
                     <div className="space-y-4">
                         <h4 className="text-lg font-bold text-yellow-400">Contacto</h4>
                         <div className="space-y-2 text-sm text-gray-400">
-                            <p>📍 Calle Principal 123</p>
-                            <p>📞 +598 2 1234 5678</p>
-                            <p>✉️ info@fcbarber.com</p>
-                            <p>⏰ Lun-Sab: 9:00-19:00</p>
+                            <p>Calle Principal 123</p>
+                            <p>+598 2 1234 5678</p>
+                            <p>info@fcbarber.com</p>
+                            <p>Lun-Sab: 9:00-19:00</p>
                         </div>
                     </div>
                 </div>

@@ -39,9 +39,9 @@ export async function POST(request: Request) {
                     hora: horario,
                 },
                 back_urls: {
-                    success: "https://imperio-gym.vercel.app/",
-                    failure: "https://imperio-gym.vercel.app/rutinas",
-                    pending: "https://imperio-gym.vercel.app/nosotros",
+                    success: "https://fc-barber.vercel.app/pago/success",
+                    failure: "https://fc-barber.vercel.app/pago/failure",
+                    pending: "https://fc-barber.vercel.app/pago/pending",
                 },
                 auto_return: "approved"
             },

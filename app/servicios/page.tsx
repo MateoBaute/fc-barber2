@@ -18,21 +18,21 @@ export default function Servicios() {
             nombre: "Corte de Cabello",
             descripcion: "Un corte profesional adaptado a tu estilo, con técnicas modernas y clásicas.",
             precio: 20,
-            img: "./imgServicios/servicioCorte.jpg",
+            img: "/imgServicios/servicioCorte.jpg",
             beneficios: ["Consulta de estilo", "Lavado incluido", "Termado y secado"]
         },
         {
             nombre: "Corte de Barba",
             descripcion: "Diseño y mantenimiento personalizado de tu barba con máxima precisión.",
             precio: 18,
-            img: "./imgServicios/servicioCorteBarba.jpg",
+            img: "/imgServicios/servicioCorteBarba.jpg",
             beneficios: ["Perfilado", "Tratamiento hidratante", "Consejo de cuidado"]
         },
         {
             nombre: "Afeitado Tradicional",
             descripcion: "Afeitado clásico con navaja afilada y productos de lujo.",
             precio: 15,
-            img: "./imgServicios/servicioAfeitado.jpg",
+            img: "/imgServicios/servicioAfeitado.jpg",
             beneficios: ["Vapor relajante", "Crema premium", "Balm calmante"]
         }
     ];
@@ -93,7 +93,7 @@ export default function Servicios() {
                                     <p className="text-xs uppercase tracking-widest text-yellow-500 font-semibold">Incluye:</p>
                                     {servicio.beneficios.map((beneficio, i) => (
                                         <div key={i} className="flex items-center text-gray-300 text-sm">
-                                            <span className="text-yellow-400 mr-2">✓</span>
+                                            <span className="text-yellow-400 mr-2">•</span>
                                             {beneficio}
                                         </div>
                                     ))}

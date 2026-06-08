@@ -19,7 +19,7 @@ export default function Contacto() {
             especialidad: "Cortes clásicos y modernos",
             experiencia: "10 años",
             contacto: "juan.perez@fcbarber.com",
-            img: "./imgBarberos/barbero1.jpg",
+            img: "/imgBarberos/barbero1.jpg",
             descripcion: "Especialista en cortes tradicionales con acabados modernos. Su técnica precisa y atención al detalle lo hacen el favorito para clientes exigentes."
         },
         {
@@ -27,7 +27,7 @@ export default function Contacto() {
             especialidad: "Barbas y afeitados",
             experiencia: "8 años",
             contacto: "maria.gomez@fcbarber.com",
-            img: "./imgBarberos/barbero2.jpg",
+            img: "/imgBarberos/barbero2.jpg",
             descripcion: "Experta en diseño de barbas y afeitados tradicionales. Conoce todas las técnicas para mantener tu barba impecable."
         },
         {
@@ -35,7 +35,7 @@ export default function Contacto() {
             especialidad: "Cortes creativos y de tendencia",
             experiencia: "5 años",
             contacto: "carlos.rodriguez@fcbarber.com",
-            img: "./imgBarberos/barbero3.jpg",
+            img: "/imgBarberos/barbero3.jpg",
             descripcion: "Artista del corte con visión creativa. Siempre atento a las últimas tendencias y estilos internacionales de moda."
         }
     ];
@@ -71,24 +71,21 @@ export default function Contacto() {
                 {/* Contact Info Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-slide-up">
                     <div className="p-6 bg-gradient-to-br from-yellow-900/20 to-black border border-yellow-500/30 rounded-lg hover:border-yellow-500 transition duration-300 text-center hover:shadow-lg hover:shadow-yellow-500/20">
-                        <div className="text-4xl mb-3">📍</div>
                         <h3 className="text-xl font-bold text-yellow-400 mb-2">Ubicación</h3>
                         <p className="text-gray-300">Calle Principal 123,<br />Centro de la Ciudad</p>
                     </div>
                     <div className="p-6 bg-gradient-to-br from-yellow-900/20 to-black border border-yellow-500/30 rounded-lg hover:border-yellow-500 transition duration-300 text-center hover:shadow-lg hover:shadow-yellow-500/20">
-                        <div className="text-4xl mb-3">📞</div>
                         <h3 className="text-xl font-bold text-yellow-400 mb-2">Teléfono</h3>
                         <p className="text-gray-300">+598 2 1234 5678<br />Lun-Sab: 9:00 - 19:00</p>
                     </div>
                     <div className="p-6 bg-gradient-to-br from-yellow-900/20 to-black border border-yellow-500/30 rounded-lg hover:border-yellow-500 transition duration-300 text-center hover:shadow-lg hover:shadow-yellow-500/20">
-                        <div className="text-4xl mb-3">✉️</div>
                         <h3 className="text-xl font-bold text-yellow-400 mb-2">Email</h3>
                         <p className="text-gray-300 break-words">info@fcbarber.com<br />reservas@fcbarber.com</p>
                     </div>
                 </div>
 
                 {/* Contact Form */}
-                <div className="max-w-2xl mx-auto animate-fade-in">
+                {/*<div className="max-w-2xl mx-auto animate-fade-in">
                     <div className="bg-gradient-to-br from-gray-900/50 to-black border border-yellow-500/30 rounded-2xl p-8">
                         <h2 className="text-3xl font-bold text-yellow-400 mb-6">Envíanos un mensaje</h2>
                         <form onSubmit={handleSubmit} className="space-y-6">
@@ -136,7 +133,7 @@ export default function Contacto() {
                             </button>
                         </form>
                     </div>
-                </div>
+                </div>*/}
 
                 {/* Team Section */}
                 <div className="space-y-8 animate-slide-up">
@@ -178,7 +175,7 @@ export default function Contacto() {
                                         {barbero.experiencia} de experiencia
                                     </p>
 
-                                    {/* Expandable Content */}
+                                    {/* Expandable Content 
                                     {selectedBarbero === index && (
                                         <div className="pt-4 space-y-3 border-t border-yellow-500/30 animate-slide-up">
                                             <p className="text-gray-300 text-sm">
@@ -191,7 +188,7 @@ export default function Contacto() {
                                                 Contactar
                                             </a>
                                         </div>
-                                    )}
+                                    )}*/}
                                 </div>
                             </div>
                         ))}
