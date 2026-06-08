@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 
 export default function Contacto() {
+
     interface Barbero {
         nombre: string;
         especialidad: string;
@@ -63,7 +64,7 @@ export default function Contacto() {
                         Contáctanos
                     </h1>
                     <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-                        ¿Preguntas o necesitas información? Nuestro equipo está listo para ayudarte. 
+                        ¿Preguntas o necesitas información? Nuestro equipo está listo para ayudarte.
                         También conoce a nuestros barberos profesionales.
                     </p>
                 </div>

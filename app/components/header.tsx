@@ -18,10 +18,15 @@ export default function Header(){
         }
     }, []);
 
-    const handleAdminLogin = (e: React.FormEvent) => {
+    const handleAdminLogin = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Contraseña simple para demo (en producción usar backend)
-        if (password === "admin123") {
+        const response = await fetch('/api/login', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({password})
+        })
+        const data = await response.json()
+        if (data.success) {
             setIsAdminLoggedIn(true);
             localStorage.setItem("adminLoggedIn", "true");
             setShowLoginModal(false);
@@ -153,7 +158,7 @@ export default function Header(){
 
             {/* Modal de Login */}
             {showLoginModal && (
-                <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+                <div className="fixed inset-0 top-60 bg-black/80 z-50 flex items-center justify-center p-4">
                     <div className="bg-black border-2 border-yellow-500 rounded-lg p-8 max-w-md w-full animate-slide-up">
                         <h2 className="text-2xl font-bold text-yellow-400 mb-6">Login Admin</h2>
                         
