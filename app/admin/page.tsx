@@ -34,13 +34,31 @@ export default function AdminPanel() {
             const data = await response.json();
 
             if (data.success) {
-                setTurnos(data.turnos);
+                setTurnos(sortTurnos(data.turnos));
             }
         } catch (error) {
             console.error("Error al obtener turnos:", error);
         } finally {
             setIsLoading(false); // Se ejecuta siempre al terminar la petición
         }
+    }
+
+    // Ordena los turnos por fecha y luego por horario (hora:minuto)
+    function sortTurnos(items: Turno[]) {
+        const safeParse = (t: Turno) => {
+            // fecha esperado: YYYY-MM-DD
+            const dateParts = t.fecha ? String(t.fecha).split('-').map(Number) : [];
+            const [y, m, d] = dateParts.length === 3 ? dateParts : [0, 0, 0];
+            let hour = 0, minute = 0;
+            if (t.horario) {
+                const parts = String(t.horario).split(':').map(Number);
+                hour = parts[0] ?? 0;
+                minute = parts[1] ?? 0;
+            }
+            return Date.UTC(y, Math.max(0, m - 1), d || 1, hour || 0, minute || 0);
+        };
+
+        return [...items].sort((a, b) => safeParse(a) - safeParse(b));
     }
 
     useEffect(() => {
