@@ -272,9 +272,9 @@ export default function FormReservas() {
                 </div>
 
                 {/* Info importante */}
-                <div className="p-4 bg-blue-900/20 border border-blue-500/30 rounded-lg text-center text-blue-300 text-sm">
+                {/* <div className="p-4 bg-blue-900/20 border border-blue-500/30 rounded-lg text-center text-blue-300 text-sm">
                     <p className="font-semibold">ℹ️ Una vez confirmada tu reserva, recibirás un email de confirmación en 24 horas</p>
-                </div>
+                </div> */}
             </div>
         </div>
     );

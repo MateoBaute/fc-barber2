@@ -22,14 +22,13 @@ export default function AdminPanel() {
     const [isLoading, setIsLoading] = useState(true);
     const [cambio, setCambio] = useState(false)
 
-    // Inicializamos como un arreglo vacío para evitar que .length falle al cargar
     const [turnos, setTurnos] = useState<Turno[]>([]);
 
     async function adminTurnos() {
         try {
             const response = await fetch('/api/turnos', {
                 method: 'GET',
-                headers: { 'Content-Type': 'application/json' }, // Corregido 'aplplication'
+                headers: { 'Content-Type': 'application/json' }, 
             });
             const data = await response.json();
 
@@ -39,14 +38,12 @@ export default function AdminPanel() {
         } catch (error) {
             console.error("Error al obtener turnos:", error);
         } finally {
-            setIsLoading(false); // Se ejecuta siempre al terminar la petición
+            setIsLoading(false);
         }
     }
 
-    // Ordena los turnos por fecha y luego por horario (hora:minuto)
     function sortTurnos(items: Turno[]) {
         const safeParse = (t: Turno) => {
-            // fecha esperado: YYYY-MM-DD
             const dateParts = t.fecha ? String(t.fecha).split('-').map(Number) : [];
             const [y, m, d] = dateParts.length === 3 ? dateParts : [0, 0, 0];
             let hour = 0, minute = 0;
@@ -63,7 +60,7 @@ export default function AdminPanel() {
 
     useEffect(() => {
         adminTurnos();
-    }, [cambio]); // Arreglo vacío corregido para evitar bucle infinito
+    }, [cambio]);
 
     async function eliminarTurno(id:number) {
         try {
@@ -94,7 +91,6 @@ export default function AdminPanel() {
 
     return (
         <div className="min-h-screen bg-black pt-20 pb-20">
-            {/* Header del panel */}
             <div className="max-w-7xl mx-auto px-4 md:px-16 mb-8">
                 <div className="flex items-center justify-between mb-8">
                     <div>
@@ -110,10 +106,8 @@ export default function AdminPanel() {
                 </div>
             </div>
 
-            {/* Tabla de turnos */}
             <div className="max-w-7xl mx-auto px-4 md:px-16">
                 <div className="grid gap-4 mb-4">
-                    {/* Header - Desktop */}
                     <div className="hidden md:grid grid-cols-5 gap-4 bg-black border border-yellow-500/20 rounded-lg p-4 font-bold text-gray-400 text-sm">
                         <div>Nombre</div>
                         <div>Contacto</div>
@@ -123,7 +117,6 @@ export default function AdminPanel() {
                     </div>
                 </div>
 
-                {/* Renderizado condicional corregido */}
                 {turnos.length > 0 ? (
                     turnos.map((t) => (
                         <div

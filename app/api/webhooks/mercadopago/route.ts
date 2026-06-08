@@ -18,12 +18,9 @@ export async function POST(request: Request) {
             const paymentInfo = await paymentClient.get({ id: paymentId });
 
             if (paymentInfo.status === "approved") {
-                // Mercado Pago devuelve la metadata con las propiedades en minúsculas
                 const metadata = paymentInfo.metadata;
                 const { nombre, correo, numero, fecha, hora } = metadata;
 
-                // INSERCIÓN DIRECTA EN TU BASE DE DATOS
-                // Modifica esta sección según cómo hagas tus consultas (Prisma, SQL puro, etc.)
                 await db.query(
                     'INSERT INTO turnnos (nombre, correo, telefono, fecha, hora, paymentId) VALUES (?,?,?,?,?,?)'
                     , [nombre, correo, numero, fecha, hora, paymentId]);

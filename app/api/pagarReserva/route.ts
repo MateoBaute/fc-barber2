@@ -30,11 +30,10 @@ export async function POST(request: Request) {
                     name: name,
                     email: email,
                 },
-                // Nota: Escribe las propiedades en minúsculas por compatibilidad con el Webhook
                 metadata: {
                     nombre: name,
                     correo: email,
-                    numero: numero, // Asegúrate de recibir la variable 'numero' en tu función
+                    numero: numero,
                     fecha: fecha,
                     hora: horario,
                 },
