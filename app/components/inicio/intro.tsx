@@ -13,7 +13,7 @@ export default function Intro() {
         
         const interval = setInterval(() => {
             setCurrentIndex((prev) => (prev + 1) % images.length);
-        }, 4000);
+        }, 3000);
 
         return () => clearInterval(interval);
     }, [images.length, autoPlay]);
@@ -31,7 +31,7 @@ export default function Intro() {
     return (
         <section className="w-full">
             <div 
-                className="relative w-full h-[320px] sm:h-[380px] md:h-[420px] lg:h-[480px] xl:h-[520px] overflow-hidden rounded-3xl shadow-2xl shadow-yellow-500/20 border border-yellow-500/30 hover:border-yellow-500/60 transition duration-300"
+                className="relative w-full h-[320px] sm:h-[380px] md:h-[420px] lg:h-[480px] xl:h-[520px] overflow-hidden rounded-3xl border border-surface-border hover:border-accent transition duration-300"
                 onMouseEnter={() => setAutoPlay(false)}
                 onMouseLeave={() => setAutoPlay(true)}
             >
@@ -55,7 +55,7 @@ export default function Intro() {
                 <button
                     type="button"
                     onClick={prevSlide}
-                    className="absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-yellow-500/80 hover:bg-yellow-500 p-2 text-black font-bold transition duration-300 transform hover:scale-110 shadow-lg shadow-yellow-500/50"
+                    className="absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-accent hover:bg-accent-strong p-2 text-accent-text-on font-bold transition duration-300 transform hover:scale-110"
                     aria-label="Imagen anterior"
                 >
                     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
@@ -67,7 +67,7 @@ export default function Intro() {
                 <button
                     type="button"
                     onClick={nextSlide}
-                    className="absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-yellow-500/80 hover:bg-yellow-500 p-2 text-black font-bold transition duration-300 transform hover:scale-110 shadow-lg shadow-yellow-500/50"
+                    className="absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-accent hover:bg-accent-strong p-2 text-accent-text-on font-bold transition duration-300 transform hover:scale-110"
                     aria-label="Imagen siguiente"
                 >
                     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
@@ -87,8 +87,8 @@ export default function Intro() {
                             }}
                             className={`rounded-full transition-all duration-300 ${
                                 index === currentIndex 
-                                    ? 'w-8 h-3 bg-yellow-500 shadow-lg shadow-yellow-500/70' 
-                                    : 'w-3 h-3 bg-yellow-500/50 hover:bg-yellow-500 hover:shadow-lg hover:shadow-yellow-500/50'
+                                    ? 'w-8 h-3 bg-accent' 
+                                    : 'w-3 h-3 bg-accent/50 hover:bg-accent'
                             }`}
                             aria-label={`Ir a la imagen ${index + 1}`}
                         />
@@ -96,7 +96,7 @@ export default function Intro() {
                 </div>
 
                 {/* Image Counter */}
-                <div className="absolute top-6 right-6 z-20 bg-black/70 backdrop-blur-sm px-4 py-2 rounded-full text-yellow-400 font-bold border border-yellow-500/30">
+                <div className="absolute top-6 right-6 z-20 bg-background/80 backdrop-blur-sm px-4 py-2 rounded-full text-accent font-bold border border-surface-border">
                     {currentIndex + 1} / {images.length}
                 </div>
             </div>

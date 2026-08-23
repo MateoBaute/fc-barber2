@@ -28,10 +28,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${geistSans.variable} ${geistMono.variable} bg-black text-gray-800 dark:text-gray-300 flex flex-col min-h-screen`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} bg-background text-foreground flex flex-col min-h-screen`}>
         <MyAppContextProvider>
           <Header />
-          <main className="w-full flex-grow text-center p-4">
+          <main className="max-w-200 mx-auto flex-grow text-center p-4">
             {children}
           </main>
           <Footer />

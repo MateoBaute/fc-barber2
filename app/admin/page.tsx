@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 // Descomentamos la interfaz para evitar errores de TypeScript (any)
@@ -18,7 +17,6 @@ interface Turno {
 
 
 export default function AdminPanel() {
-    const router = useRouter();
     const [isLoading, setIsLoading] = useState(true);
     const [cambio, setCambio] = useState(false)
 
@@ -83,23 +81,23 @@ export default function AdminPanel() {
 
     if (isLoading) {
         return (
-            <div className="min-h-screen bg-black pt-20 flex items-center justify-center">
-                <p className="text-yellow-400 text-xl">Cargando...</p>
+            <div className="min-h-screen bg-background pt-20 flex items-center justify-center">
+                <p className="text-accent text-xl">Cargando...</p>
             </div>
         );
     }
 
     return (
-        <div className="min-h-screen bg-black pt-20 pb-20">
+        <div className="min-h-screen bg-background pt-20 pb-20">
             <div className="max-w-7xl mx-auto px-4 md:px-16 mb-8">
                 <div className="flex items-center justify-between mb-8">
                     <div>
-                        <h1 className="text-4xl md:text-5xl font-bold text-yellow-500 mb-2">Panel Admin</h1>
+                        <h1 className="text-4xl md:text-5xl font-bold text-accent mb-2">Panel Admin</h1>
                         <p className="text-gray-400">Gestiona los turnos del barbershop</p>
                     </div>
                     <Link
                         href="/"
-                        className="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded transition duration-300 text-sm font-medium"
+                        className="px-4 py-2 bg-transparent border border-surface-border hover:bg-white/5 text-text-secondary rounded transition duration-300 text-sm font-medium"
                     >
                         Volver al Inicio
                     </Link>
@@ -108,7 +106,7 @@ export default function AdminPanel() {
 
             <div className="max-w-7xl mx-auto px-4 md:px-16">
                 <div className="grid gap-4 mb-4">
-                    <div className="hidden md:grid grid-cols-5 gap-4 bg-black border border-yellow-500/20 rounded-lg p-4 font-bold text-gray-400 text-sm">
+                    <div className="hidden md:grid grid-cols-5 gap-4 bg-surface border border-surface-border rounded-lg p-4 font-bold text-text-muted text-sm">
                         <div>Nombre</div>
                         <div>Contacto</div>
                         <div>Fecha</div>
@@ -121,27 +119,27 @@ export default function AdminPanel() {
                     turnos.map((t) => (
                         <div
                             key={t.id}
-                            className="grid grid-cols-1 md:grid-cols-5 gap-4 bg-zinc-900 border border-zinc-800 rounded-lg p-4 text-white mb-2"
+                            className="grid grid-cols-1 md:grid-cols-5 gap-4 bg-surface border border-surface-border rounded-lg p-4 text-foreground mb-2"
                         >
                             <div>{t.nombre}</div>
-                            <div className="text-gray-400 text-sm">{t.telefono || t.correo}</div>
+                            <div className="text-text-muted text-sm">{t.telefono || t.correo}</div>
                             <div>{new Date(t.fecha).toLocaleDateString('es-ES', {
                                 day: '2-digit',
                                 month: '2-digit',
                                 year: 'numeric',
                                 timeZone: 'UTC'
                             })}</div>
-                            <div className="text-yellow-500">{t.horario}</div>
+                            <div className="text-accent">{t.horario}</div>
                             <div>
                                 <button onClick={() => eliminarTurno(t.id)}  aria-label={`Eliminar turno ${t.id}`}
-                                    className="px-3 py-1 bg-transparent hover:bg-red-600/10 text-red-500 hover:text-red-600 border border-transparent hover:border-red-600 rounded text-sm font-medium transition-colors duration-150"
+                                    className="px-3 py-1 bg-transparent hover:bg-danger/10 text-danger hover:border-danger border border-transparent rounded text-sm font-medium transition-colors duration-150"
                                 > Eliminar turno</button>
                             </div>
                         </div>
                     ))
                 ) : (
-                    <div className="text-center p-8 bg-zinc-900 rounded-lg border border-zinc-800">
-                        <p className="text-gray-400">No hay turnos registrados</p>
+                    <div className="text-center p-8 bg-surface rounded-lg border border-surface-border">
+                        <p className="text-text-muted">No hay turnos registrados</p>
                     </div>
                 )}
             </div>

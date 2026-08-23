@@ -97,47 +97,47 @@ export default function FormReservas() {
             {/* Paso 1: Información Personal */}
             <div className="space-y-6">
                 <div className="flex items-center space-x-3 mb-6">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold flex items-center justify-center shadow-lg shadow-yellow-500/50">
+                    <div className="w-10 h-10 rounded-full bg-accent text-accent-text-on font-bold flex items-center justify-center">
                         1
                     </div>
-                    <h3 className="text-2xl font-bold text-yellow-400">Tu Información</h3>
+                    <h3 className="text-2xl font-bold text-accent">Tu Información</h3>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 bg-gradient-to-br from-gray-800/30 to-black border border-yellow-500/20 rounded-xl">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 bg-surface border border-surface-border rounded-xl">
                     <div className="relative group">
-                        <label className="block text-yellow-400 font-semibold mb-3 text-sm uppercase tracking-wider">Nombre Completo</label>
+                        <label className="block text-accent font-semibold mb-3 text-sm uppercase tracking-wider">Nombre Completo</label>
                         <input 
                             value={nombre} 
                             onChange={(e) => setNombre(e.target.value)} 
                             type="text" 
                             placeholder="Ingrese sun nombre" 
-                            className="w-full px-4 py-3 bg-gray-900/50 border-2 border-yellow-500/20 rounded-lg text-gray-300 placeholder-gray-600 focus:border-yellow-500 focus:bg-gray-900/80 focus:shadow-lg focus:shadow-yellow-500/30 outline-none transition duration-300 hover:border-yellow-500/40 group-hover:border-yellow-500/40"
+                            className="w-full px-4 py-3 bg-background border border-surface-border rounded-lg text-text-secondary placeholder-text-muted focus:border-accent focus:bg-surface outline-none transition duration-300 hover:border-accent"
                         />
-                        <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-yellow-600 group-focus-within:w-full transition-all duration-300 rounded-full"></div>
+                        <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-focus-within:w-full transition-all duration-300 rounded-full"></div>
                     </div>
 
                     <div className="relative group">
-                        <label className="block text-yellow-400 font-semibold mb-3 text-sm uppercase tracking-wider">Email</label>
+                        <label className="block text-accent font-semibold mb-3 text-sm uppercase tracking-wider">Email</label>
                         <input 
                             value={email} 
                             onChange={(e) => setEmail(e.target.value)} 
                             type="email" 
                             placeholder="Ingrese su email" 
-                            className="w-full px-4 py-3 bg-gray-900/50 border-2 border-yellow-500/20 rounded-lg text-gray-300 placeholder-gray-600 focus:border-yellow-500 focus:bg-gray-900/80 focus:shadow-lg focus:shadow-yellow-500/30 outline-none transition duration-300 hover:border-yellow-500/40 group-hover:border-yellow-500/40"
+                            className="w-full px-4 py-3 bg-background border border-surface-border rounded-lg text-text-secondary placeholder-text-muted focus:border-accent focus:bg-surface outline-none transition duration-300 hover:border-accent"
                         />
-                        <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-yellow-600 group-focus-within:w-full transition-all duration-300 rounded-full"></div>
+                        <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-focus-within:w-full transition-all duration-300 rounded-full"></div>
                     </div>
 
                     <div className="relative group">
-                        <label className="block text-yellow-400 font-semibold mb-3 text-sm uppercase tracking-wider">Teléfono</label>
+                        <label className="block text-accent font-semibold mb-3 text-sm uppercase tracking-wider">Teléfono</label>
                         <input 
                             value={telefono} 
                             onChange={(e) => setTelefono(e.target.value)} 
                             type="tel" 
-                            placeholder="Su número de teléfono pero sin el 0" 
-                            className="w-full px-4 py-3 bg-gray-900/50 border-2 border-yellow-500/20 rounded-lg text-gray-300 placeholder-gray-600 focus:border-yellow-500 focus:bg-gray-900/80 focus:shadow-lg focus:shadow-yellow-500/30 outline-none transition duration-300 hover:border-yellow-500/40 group-hover:border-yellow-500/40"
+                            placeholder="Número de teléfono" 
+                            className="w-full px-4 py-3 bg-background border border-surface-border rounded-lg text-text-secondary placeholder-text-muted focus:border-accent focus:bg-surface outline-none transition duration-300 hover:border-accent"
                         />
-                        <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-yellow-600 group-focus-within:w-full transition-all duration-300 rounded-full"></div>
+                        <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-focus-within:w-full transition-all duration-300 rounded-full"></div>
                     </div>
 
                     <div className="relative group">
@@ -146,7 +146,7 @@ export default function FormReservas() {
                             onChange={(date) => setFecha(date)}
                             label="Fecha"
                         />
-                        <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-yellow-600 group-focus-within:w-full transition-all duration-300 rounded-full"></div>
+                        <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-focus-within:w-full transition-all duration-300 rounded-full"></div>
                     </div>
                 </div>
             </div>
@@ -155,15 +155,15 @@ export default function FormReservas() {
             {fechaSeleccionada && (
                 <div className="space-y-6 animate-slide-up">
                     <div className="flex items-center space-x-3 mb-6">
-                        <div className="w-10 h-10 rounded-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold flex items-center justify-center shadow-lg shadow-yellow-500/50">
+                        <div className="w-10 h-10 rounded-full bg-accent text-accent-text-on font-bold flex items-center justify-center">
                             2
                         </div>
-                        <h3 className="text-2xl font-bold text-yellow-400">Elige tu Horario</h3>
+                        <h3 className="text-2xl font-bold text-accent">Elige tu Horario</h3>
                     </div>
 
                     {horasDisponibles.length > 0 ? (
-                        <div className="p-6 bg-gradient-to-br from-gray-800/30 to-black border border-yellow-500/20 rounded-xl space-y-4">
-                            <p className="text-gray-400 text-sm">Horarios disponibles</p>
+                        <div className="p-6 bg-surface border border-surface-border rounded-xl space-y-4">
+                            <p className="text-text-secondary text-sm">Horarios disponibles</p>
                             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
                                 {horasDisponibles.map((h, index) => (
                                     <button 
@@ -171,8 +171,8 @@ export default function FormReservas() {
                                         onClick={() => setHorario(h)} 
                                         className={`py-3 px-2 rounded-lg font-semibold transition duration-300 transform hover:scale-110 relative overflow-hidden group ${
                                             horario === h 
-                                                ? 'bg-gradient-to-r from-yellow-500 to-yellow-600 text-black shadow-lg shadow-yellow-500/70 scale-105' 
-                                                : 'bg-gray-800/50 border-2 border-yellow-500/30 text-gray-300 hover:border-yellow-500 hover:bg-gray-800/80 hover:shadow-lg hover:shadow-yellow-500/30'
+                                                ? 'bg-accent text-accent-text-on scale-105' 
+                                                : 'bg-background border border-surface-border text-text-secondary hover:border-accent hover:bg-white/5'
                                         }`}
                                     >
                                         {h}
@@ -184,9 +184,9 @@ export default function FormReservas() {
                             </div>
                         </div>
                     ) : (
-                        <div className="p-8 bg-gradient-to-br from-yellow-900/20 to-black border-2 border-yellow-500/50 rounded-xl text-center space-y-3 animate-fade-in">
-                            <p className="font-bold text-yellow-300 text-lg">No hay horarios disponibles</p>
-                            <p className="text-yellow-200 text-sm">Para la fecha seleccionada, por favor elige otra fecha.</p>
+                        <div className="p-8 bg-surface border border-surface-border rounded-xl text-center space-y-3 animate-fade-in">
+                            <p className="font-bold text-accent text-lg">No hay horarios disponibles</p>
+                            <p className="text-text-secondary text-sm">Para la fecha seleccionada, por favor elige otra fecha.</p>
                         </div>
                     )}
                 </div>
@@ -196,37 +196,37 @@ export default function FormReservas() {
             {nombre && email && telefono && fecha && horario && (
                 <div className="space-y-6 animate-slide-up">
                     <div className="flex items-center space-x-3 mb-6">
-                        <div className="w-10 h-10 rounded-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold flex items-center justify-center shadow-lg shadow-yellow-500/50">
+                        <div className="w-10 h-10 rounded-full bg-accent text-accent-text-on font-bold flex items-center justify-center">
                             3
                         </div>
-                        <h3 className="text-2xl font-bold text-yellow-400">Resumen de tu Reserva</h3>
+                        <h3 className="text-2xl font-bold text-accent">Resumen de tu Reserva</h3>
                     </div>
 
-                    <div className="p-6 bg-gradient-to-r from-yellow-900/30 to-black border-2 border-yellow-500/50 rounded-xl space-y-4 shadow-lg shadow-yellow-500/20">
+                    <div className="p-6 bg-surface border border-accent rounded-xl space-y-4">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <p className="text-yellow-400 text-sm uppercase tracking-widest font-semibold">Nombre</p>
+                                <p className="text-accent text-sm uppercase tracking-widest font-semibold">Nombre</p>
                                 <p className="text-gray-200 text-lg font-bold">{nombre}</p>
                             </div>
                             <div className="space-y-2">
-                                <p className="text-yellow-400 text-sm uppercase tracking-widest font-semibold">Email</p>
+                                <p className="text-accent text-sm uppercase tracking-widest font-semibold">Email</p>
                                 <p className="text-gray-200 text-lg font-bold break-all">{email}</p>
                             </div>
                             <div className="space-y-2">
-                                <p className="text-yellow-400 text-sm uppercase tracking-widest font-semibold">Teléfono</p>
+                                <p className="text-accent text-sm uppercase tracking-widest font-semibold">Teléfono</p>
                                 <p className="text-gray-200 text-lg font-bold">{telefono}</p>
                             </div>
                             <div className="space-y-2">
-                                <p className="text-yellow-400 text-sm uppercase tracking-widest font-semibold">Fecha</p>
+                                <p className="text-accent text-sm uppercase tracking-widest font-semibold">Fecha</p>
                                 <p className="text-gray-200 text-lg font-bold">{fecha}</p>
                             </div>
                             <div className="space-y-2">
-                                <p className="text-yellow-400 text-sm uppercase tracking-widest font-semibold">Horario</p>
+                                <p className="text-accent text-sm uppercase tracking-widest font-semibold">Horario</p>
                                 <p className="text-gray-200 text-lg font-bold">{horario} hs</p>
                             </div>
                             <div className="space-y-2">
-                                <p className="text-yellow-400 text-sm uppercase tracking-widest font-semibold">Monto</p>
-                                <p className="text-yellow-400 text-lg font-bold">$300</p>
+                                <p className="text-accent text-sm uppercase tracking-widest font-semibold">Monto</p>
+                                <p className="text-accent text-lg font-bold">$300</p>
                             </div>
                         </div>
                     </div>
@@ -236,16 +236,16 @@ export default function FormReservas() {
             {/* Botón de confirmación */}
             <div className="space-y-6">
                 <div className="flex items-center space-x-3 mb-6">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold flex items-center justify-center shadow-lg shadow-yellow-500/50">
+                        <div className="w-10 h-10 rounded-full bg-accent text-accent-text-on font-bold flex items-center justify-center">
                         4
                     </div>
-                    <h3 className="text-2xl font-bold text-yellow-400">Confirmar y Pagar</h3>
+                    <h3 className="text-2xl font-bold text-accent">Confirmar y Pagar</h3>
                 </div>
 
                 <button 
                     onClick={confirmarTurno} 
                     disabled={loading || !nombre || !email || !telefono || !fecha || !horario}
-                    className="w-full group relative overflow-hidden py-4 px-6 bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-600 text-black font-bold text-lg rounded-xl hover:from-yellow-400 hover:via-yellow-300 hover:to-yellow-500 disabled:from-gray-600 disabled:via-gray-600 disabled:to-gray-700 disabled:text-gray-400 disabled:cursor-not-allowed transition duration-300 transform hover:scale-105 disabled:hover:scale-100 shadow-lg shadow-yellow-500/60 hover:shadow-yellow-400/80 disabled:shadow-gray-500/30"
+                    className="w-full group relative overflow-hidden py-4 px-6 bg-accent text-accent-text-on font-bold text-lg rounded-xl hover:bg-accent-strong disabled:bg-gray-600 disabled:text-gray-400 disabled:cursor-not-allowed transition duration-300 transform hover:scale-105 disabled:hover:scale-100"
                 >
                     <div className="relative z-10 flex items-center justify-center space-x-2">
                         {loading ? (
@@ -264,11 +264,11 @@ export default function FormReservas() {
                 </button>
 
                 {/* Nota de seguridad */}
-                <div className="p-6 bg-gradient-to-br from-green-900/20 to-black border-2 border-green-500/30 rounded-xl space-y-3 text-center">
-                    <h3 className="text-lg font-bold text-green-400">Reserva Segura</h3>
-                    <p className="text-green-300 font-semibold">Pago 100% Seguro</p>
-                    <p className="text-gray-400 text-sm">Tu información está protegida</p>
-                    <p className="text-gray-500 text-xs">El pago se procesa a través de Mercado Pago</p>
+                <div className="p-6 bg-surface border border-surface-border rounded-xl space-y-3 text-center">
+                    <h3 className="text-lg font-bold text-accent">Reserva Segura</h3>
+                    <p className="text-accent-strong font-semibold">Pago 100% Seguro</p>
+                    <p className="text-text-secondary text-sm">Tu información está protegida</p>
+                    <p className="text-text-muted text-xs">El pago se procesa a través de Mercado Pago</p>
                 </div>
 
                 {/* Info importante */}

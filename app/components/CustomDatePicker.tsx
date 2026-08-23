@@ -73,36 +73,36 @@ export default function CustomDatePicker({ value, onChange, label }: CustomDateP
     return (
         <div ref={pickerRef} className="relative">
             {label && (
-                <label className="block text-yellow-400 font-semibold mb-3 text-sm uppercase tracking-wider">📅 {label}</label>
+                <label className="block text-accent font-semibold mb-3 text-sm uppercase tracking-wider">📅 {label}</label>
             )}
             
             <button
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full px-4 py-3 bg-gray-900/50 border-2 border-yellow-500/20 rounded-lg text-gray-300 focus:border-yellow-500 focus:bg-gray-900/80 focus:shadow-lg focus:shadow-yellow-500/30 outline-none transition duration-300 hover:border-yellow-500/40 text-left flex justify-between items-center group"
+                className="w-full px-4 py-3 bg-background border border-surface-border rounded-lg text-text-secondary focus:border-accent focus:bg-surface outline-none transition duration-300 hover:border-accent text-left flex justify-between items-center group"
             >
                 <span>{displayDate}</span>
-                <span className="text-yellow-500 group-hover:scale-110 transition">📅</span>
+                <span className="text-accent group-hover:scale-110 transition">📅</span>
             </button>
 
             {isOpen && (
-                <div className="absolute top-full mt-2 left-0 bg-gradient-to-br from-gray-900 to-black border-2 border-yellow-500/50 rounded-lg shadow-2xl shadow-yellow-500/30 p-4 z-50 w-full min-w-80 animate-slide-up">
+                <div className="absolute top-full mt-2 left-0 bg-surface border border-surface-border rounded-lg shadow-xl shadow-black/20 p-4 z-50 w-full min-w-80 animate-slide-up">
                     {/* Header */}
                     <div className="flex items-center justify-between mb-4">
                         <button
                             type="button"
                             onClick={handlePrevMonth}
-                            className="p-2 hover:bg-yellow-500/20 rounded-lg transition text-yellow-400 hover:text-yellow-300"
+                            className="p-2 hover:bg-white/5 rounded-lg transition text-accent hover:text-accent-strong"
                         >
                             ◀
                         </button>
-                        <h3 className="text-yellow-400 font-bold text-center flex-1">
+                        <h3 className="text-accent font-bold text-center flex-1">
                             {monthNames[currentDate.getMonth()]} {currentDate.getFullYear()}
                         </h3>
                         <button
                             type="button"
                             onClick={handleNextMonth}
-                            className="p-2 hover:bg-yellow-500/20 rounded-lg transition text-yellow-400 hover:text-yellow-300"
+                            className="p-2 hover:bg-white/5 rounded-lg transition text-accent hover:text-accent-strong"
                         >
                             ▶
                         </button>
@@ -111,7 +111,7 @@ export default function CustomDatePicker({ value, onChange, label }: CustomDateP
                     {/* Day names */}
                     <div className="grid grid-cols-7 gap-1 mb-2">
                         {dayNames.map((day) => (
-                            <div key={day} className="text-center text-xs font-bold text-yellow-400 py-2">
+                            <div key={day} className="text-center text-xs font-bold text-accent py-2">
                                 {day}
                             </div>
                         ))}
@@ -130,8 +130,8 @@ export default function CustomDatePicker({ value, onChange, label }: CustomDateP
                                         ? 'text-gray-600'
                                         : day === (value ? new Date(value + 'T00:00:00').getDate() : null) &&
                                           currentDate.getMonth() === new Date(value + 'T00:00:00').getMonth()
-                                        ? 'bg-gradient-to-r from-yellow-500 to-yellow-600 text-black shadow-lg shadow-yellow-500/50 scale-105'
-                                        : 'bg-gray-800/50 text-gray-300 hover:bg-yellow-500/20 hover:border-yellow-500/50 hover:text-yellow-300 border border-gray-700/50 hover:border-yellow-500'
+                                        ? 'bg-accent text-accent-text-on scale-105'
+                                        : 'bg-background text-text-secondary hover:bg-white/5 hover:border-accent border border-surface-border'
                                 }`}
                             >
                                 {day}
@@ -144,14 +144,14 @@ export default function CustomDatePicker({ value, onChange, label }: CustomDateP
                         <button
                             type="button"
                             onClick={handleClear}
-                            className="flex-1 py-2 px-3 bg-gray-800/50 border border-gray-600/50 text-gray-300 rounded-lg hover:bg-gray-700/50 hover:border-gray-500 transition text-sm font-semibold"
+                            className="flex-1 py-2 px-3 bg-transparent border border-surface-border text-text-secondary rounded-lg hover:bg-white/5 transition text-sm font-semibold"
                         >
                             Limpiar
                         </button>
                         <button
                             type="button"
                             onClick={handleToday}
-                            className="flex-1 py-2 px-3 bg-gradient-to-r from-yellow-500 to-yellow-600 text-black rounded-lg hover:from-yellow-400 hover:to-yellow-500 transition text-sm font-semibold shadow-lg shadow-yellow-500/40"
+                            className="flex-1 py-2 px-3 bg-accent text-accent-text-on rounded-lg hover:bg-accent-strong transition text-sm font-semibold"
                         >
                             Hoy
                         </button>
