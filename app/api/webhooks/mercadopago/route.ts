@@ -19,13 +19,21 @@ export async function POST(request: Request) {
 
             if (paymentInfo.status === "approved") {
                 const metadata = paymentInfo.metadata;
-                const { nombre, correo, numero, fecha, hora } = metadata;
+                const { usuario_id, nombre, correo, numero, fecha, horario } = metadata;
 
-                await db.query(
-                    'INSERT INTO turnnos (nombre, correo, telefono, fecha, hora, paymentId) VALUES (?,?,?,?,?,?)'
-                    , [nombre, correo, numero, fecha, hora, paymentId]);
-
-                console.log(`¡Turno de ${nombre} guardado exitosamente en la BBDD!`);
+                try {
+                    await db.query(
+                        "INSERT INTO turnos (usuario_id, nombre, correo, telefono, fecha, horario, payment_id, estado_pago) VALUES (?, ?, ?, ?, ?, ?, ?, 'pagado')",
+                        [usuario_id ?? null, nombre, correo, numero, fecha, horario, String(paymentId)]
+                    );
+                    console.log(`¡Turno de ${nombre} guardado exitosamente en la BBDD!`);
+                } catch (dbError: any) {
+                    if (dbError?.code === "ER_DUP_ENTRY") {
+                        console.log(`Webhook duplicado o horario ya ocupado para payment ${paymentId}, se ignora.`);
+                    } else {
+                        throw dbError;
+                    }
+                }
             }
         }
 

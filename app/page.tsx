@@ -38,19 +38,19 @@ export default function Home() {
       </div>
 
       {/* Stats Section */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-4xl animate-slide-up">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-[80%] mx-auto my-12 max-w-4xl animate-slide-up">
         <div className="text-center p-8 bg-surface border border-surface-border rounded-lg hover:border-accent transition duration-300 transform hover:scale-105">
-          <p className="text-4xl font-bold text-accent mb-2">15+</p>
+          <p className="text-4xl font-bold text-accent mb-2">3+</p>
           <p className="text-text-secondary">Años de experiencia</p>
         </div>
         <div className="text-center p-8 bg-surface border border-surface-border rounded-lg hover:border-accent transition duration-300 transform hover:scale-105">
           <p className="text-4xl font-bold text-accent mb-2">500+</p>
           <p className="text-text-secondary">Clientes satisfechos</p>
         </div>
-        <div className="text-center p-8 bg-surface border border-surface-border rounded-lg hover:border-accent transition duration-300 transform hover:scale-105">
-          <p className="text-4xl font-bold text-accent mb-2">10</p>
-          <p className="text-text-secondary">Barberos profesionales</p>
-        </div>
+        {/* <div className="text-center p-8 bg-surface border border-surface-border rounded-lg hover:border-accent transition duration-300 transform hover:scale-105">
+          <p className="text-4xl font-bold text-accent mb-2"></p>
+          <p className="text-text-secondary">Productos profesionales</p>
+        </div> */}
       </div>
 
       {/* Why Choose Us Section */}
