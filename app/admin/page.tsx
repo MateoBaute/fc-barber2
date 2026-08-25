@@ -118,7 +118,7 @@ export default function AdminPanel() {
 
                 {turnos.length > 0 ? (
                     turnos.map((t) => (
-                        <div className="grid grid-cols-1 md:grid-cols-6 gap-4 bg-surface border border-surface-border rounded-lg p-4 text-foreground mb-2">
+                        <div key={t.id} className="grid grid-cols-1 md:grid-cols-6 gap-4 bg-surface border border-surface-border rounded-lg p-4 text-foreground mb-2">
                             <div>{t.nombre}</div>
                             <div className="text-text-muted text-sm">{t.telefono || t.correo}</div>
                             <div>{new Date(t.fecha).toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC' })}</div>

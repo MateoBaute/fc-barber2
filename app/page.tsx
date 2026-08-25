@@ -47,10 +47,6 @@ export default function Home() {
           <p className="text-4xl font-bold text-accent mb-2">500+</p>
           <p className="text-text-secondary">Clientes satisfechos</p>
         </div>
-        {/* <div className="text-center p-8 bg-surface border border-surface-border rounded-lg hover:border-accent transition duration-300 transform hover:scale-105">
-          <p className="text-4xl font-bold text-accent mb-2"></p>
-          <p className="text-text-secondary">Productos profesionales</p>
-        </div> */}
       </div>
 
       {/* Why Choose Us Section */}
