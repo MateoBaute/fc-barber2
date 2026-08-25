@@ -1,28 +1,63 @@
 'use client';
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
+
+interface Usuario {
+    nombre: string;
+    correo: string;
+    rol: 'cliente' | 'admin';
+}
+
+function PersonIcon() {
+    return (
+        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+        </svg>
+    );
+}
+
+function CheckBadgeIcon() {
+    return (
+        <svg className="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+        </svg>
+    );
+}
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
+    const [usuario, setUsuario] = useState<Usuario | null>(null);
+    const [accountMenuOpen, setAccountMenuOpen] = useState(false);
+    const accountMenuRef = useRef<HTMLDivElement>(null);
     const router = useRouter();
 
     useEffect(() => {
         fetch('/api/auth/me')
             .then(res => res.json())
             .then(data => {
-                if (data.success && data.usuario?.rol === 'admin') {
-                    setIsAdminLoggedIn(true);
+                if (data.success && data.usuario) {
+                    setUsuario(data.usuario);
                 }
             })
             .catch(() => {});
     }, []);
 
-    const handleAdminLogout = async () => {
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (accountMenuRef.current && !accountMenuRef.current.contains(event.target as Node)) {
+                setAccountMenuOpen(false);
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
+
+    const handleLogout = async () => {
         await fetch('/api/auth/logout', { method: 'POST' });
-        setIsAdminLoggedIn(false);
+        setUsuario(null);
+        setAccountMenuOpen(false);
         router.push("/");
         router.refresh();
     };
@@ -52,28 +87,52 @@ export default function Header() {
                     ))}
                 </div>
 
-                <div className="hidden md:flex items-center space-x-4">
-                    {isAdminLoggedIn ? (
-                        <>
-                            <Link
-                                href="/admin"
-                                className="text-text-secondary hover:text-accent transition duration-300 text-sm font-medium"
-                            >
-                                Panel Admin
-                            </Link>
+                <div className="hidden md:flex items-center">
+                    {usuario ? (
+                        <div className="relative" ref={accountMenuRef}>
                             <button
-                                onClick={handleAdminLogout}
-                                className="px-3 py-1 text-sm bg-danger/90 hover:bg-danger text-white rounded transition duration-300"
+                                onClick={() => setAccountMenuOpen(!accountMenuOpen)}
+                                className="flex items-center gap-2 px-3 py-1.5 rounded text-text-secondary hover:text-accent hover:bg-white/5 transition duration-300 text-sm font-medium"
                             >
-                                Logout
+                                <PersonIcon />
+                                <span>{usuario.nombre}</span>
+                                {usuario.rol === 'admin' && <CheckBadgeIcon />}
                             </button>
-                        </>
+
+                            {accountMenuOpen && (
+                                <div className="absolute right-0 mt-2 w-48 bg-surface border border-surface-border rounded-lg shadow-xl shadow-black/20 py-2 z-50 animate-slide-up">
+                                    <Link
+                                        href="/perfil"
+                                        onClick={() => setAccountMenuOpen(false)}
+                                        className="block px-4 py-2 text-sm text-text-secondary hover:text-accent hover:bg-white/5 transition"
+                                    >
+                                        Perfil
+                                    </Link>
+                                    {usuario.rol === 'admin' && (
+                                        <Link
+                                            href="/admin"
+                                            onClick={() => setAccountMenuOpen(false)}
+                                            className="block px-4 py-2 text-sm text-text-secondary hover:text-accent hover:bg-white/5 transition"
+                                        >
+                                            Panel Admin
+                                        </Link>
+                                    )}
+                                    <button
+                                        onClick={handleLogout}
+                                        className="w-full text-left px-4 py-2 text-sm text-danger hover:bg-danger/10 transition"
+                                    >
+                                        Cerrar sesión
+                                    </button>
+                                </div>
+                            )}
+                        </div>
                     ) : (
                         <Link
-                            href="/admin/login"
-                            className="px-3 py-1 text-sm bg-accent hover:bg-accent-strong text-accent-text-on rounded font-medium transition duration-300"
+                            href="/login"
+                            className="flex items-center gap-2 px-3 py-1.5 text-sm text-text-secondary hover:text-accent transition duration-300 font-medium"
                         >
-                            Admin
+                            <PersonIcon />
+                            <span>Ingresar</span>
                         </Link>
                     )}
                 </div>
@@ -104,33 +163,48 @@ export default function Header() {
                                 {item.label}
                             </Link>
                         ))}
-                        <div className="border-t border-surface-border pt-4 w-full">
-                            {isAdminLoggedIn ? (
+                        <div className="border-t border-surface-border pt-4 w-full space-y-3">
+                            {usuario ? (
                                 <>
+                                    <div className="flex items-center gap-2 text-accent text-lg font-medium">
+                                        <PersonIcon />
+                                        <span>{usuario.nombre}</span>
+                                        {usuario.rol === 'admin' && <CheckBadgeIcon />}
+                                    </div>
                                     <Link
-                                        href="/admin"
+                                        href="/perfil"
                                         onClick={() => setIsMenuOpen(false)}
-                                        className="text-accent hover:text-accent-strong transition duration-300 text-lg font-medium w-full block mb-3"
+                                        className="text-text-secondary hover:text-accent transition duration-300 text-sm font-medium w-full block"
                                     >
-                                        Panel Admin
+                                        Perfil
                                     </Link>
+                                    {usuario.rol === 'admin' && (
+                                        <Link
+                                            href="/admin"
+                                            onClick={() => setIsMenuOpen(false)}
+                                            className="text-text-secondary hover:text-accent transition duration-300 text-sm font-medium w-full block"
+                                        >
+                                            Panel Admin
+                                        </Link>
+                                    )}
                                     <button
                                         onClick={() => {
-                                            handleAdminLogout();
+                                            handleLogout();
                                             setIsMenuOpen(false);
                                         }}
                                         className="w-full px-3 py-2 text-sm bg-danger/90 hover:bg-danger text-white rounded transition duration-300 font-medium"
                                     >
-                                        Logout
+                                        Cerrar sesión
                                     </button>
                                 </>
                             ) : (
                                 <Link
-                                    href="/admin/login"
+                                    href="/login"
                                     onClick={() => setIsMenuOpen(false)}
-                                    className="w-full px-3 py-2 text-sm bg-accent hover:bg-accent-strong text-accent-text-on rounded font-medium transition duration-300 block text-center"
+                                    className="w-full px-3 py-2 text-sm bg-accent hover:bg-accent-strong text-accent-text-on rounded font-medium transition duration-300 flex items-center justify-center gap-2"
                                 >
-                                    Admin
+                                    <PersonIcon />
+                                    <span>Ingresar</span>
                                 </Link>
                             )}
                         </div>
