@@ -19,13 +19,14 @@ export async function POST(request: Request) {
 
             if (paymentInfo.status === "approved") {
                 const metadata = paymentInfo.metadata;
-                const { usuario_id, nombre, correo, numero, fecha, horario } = metadata;
+                const { usuario_id, nombre, correo, numero, fecha, horario, servicio } = metadata;
 
                 try {
                     await db.query(
-                        "INSERT INTO turnos (usuario_id, nombre, correo, telefono, fecha, horario, payment_id, estado_pago) VALUES (?, ?, ?, ?, ?, ?, ?, 'pagado')",
-                        [usuario_id ?? null, nombre, correo, numero, fecha, horario, String(paymentId)]
+                        "INSERT INTO turnos (usuario_id, nombre, correo, telefono, fecha, horario, servicio, payment_id, estado_pago) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'pagado')",
+                        [usuario_id ?? null, nombre, correo, numero, fecha, horario, servicio, String(paymentId)]
                     );
+
                     console.log(`¡Turno de ${nombre} guardado exitosamente en la BBDD!`);
                 } catch (dbError: any) {
                     if (dbError?.code === "ER_DUP_ENTRY") {

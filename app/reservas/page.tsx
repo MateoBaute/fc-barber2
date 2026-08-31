@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import FormReservas from "@/app/components/reservas/formReservas";
 
 export default function Reservas() {
@@ -16,17 +17,17 @@ export default function Reservas() {
                 </div>
 
                 {/* Steps */}
-                <div className="space-y-4 animate-slide-up">
+                <div className="space-y-4 animate-slide-up w-full">
                     <h3 className="text-2xl font-bold text-accent text-center mb-8">Cómo reservar</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-4">
                         {[
-                            { numero: "1", titulo: "Completa tu información", desc: "Nombre, email y teléfono" },
-                            { numero: "2", titulo: "Selecciona la fecha", desc: "Elige el día que prefieras" },
-                            { numero: "3", titulo: "Elige horario", desc: "Horas disponibles se cargan automáticamente" },
-                            { numero: "4", titulo: "Confirma y paga", desc: "Realiza el pago para asegurar tu turno" }
+                            { numero: "1", titulo: "Elegí tu Servicio", desc: "Corte de pelo, barba, etc." },
+                            { numero: "2", titulo: "Tu Información", desc: "Nombre, Apellido, Número, etc." },
+                            { numero: "3", titulo: "Elige tu Horario", desc: "Horas disponibles se cargan automáticamente" },
+                            { numero: "4", titulo: "Elegí cómo pagar", desc: "Pagar con tarjeta, Pagar en el local, etc." },
                         ].map((paso, index) => (
                             <div key={index} className="text-center space-y-3">
-                                <div className="w-12 h-12 rounded-full bg-accent text-accent-text-on font-bold text-lg flex items-center justify-center mx-auto">
+                                <div className="w-10 h-10 rounded-full bg-accent text-accent-text-on font-bold text-lg flex items-center justify-center mx-auto">
                                     {paso.numero}
                                 </div>
                                 <div>
@@ -39,10 +40,11 @@ export default function Reservas() {
                 </div>
 
                 {/* Form */}
-                <div className="bg-surface border border-surface-border rounded-2xl p-8 animate-fade-in">
-                    <FormReservas />
+                 <div className="bg-surface border border-surface-border rounded-2xl p-8 animate-fade-in">
+                    <Suspense fallback={<p className="text-text-secondary text-center">Cargando...</p>}>
+                        <FormReservas />
+                    </Suspense>
                 </div>
-
                 {/* Info Section */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-slide-up">
                     <div className="text-center p-6 bg-surface border border-surface-border rounded-lg hover:border-accent transition duration-300">

@@ -10,6 +10,7 @@ interface Turno {
     telefono: string;
     fecha: string;
     horario: string;
+    servicio: string;
     estado_pago: 'pendiente' | 'pagado';
 }
 
@@ -119,14 +120,17 @@ export default function AdminPanel() {
                 {turnos.length > 0 ? (
                     turnos.map((t) => (
                         <div key={t.id} className="grid grid-cols-1 md:grid-cols-6 gap-4 bg-surface border border-surface-border rounded-lg p-4 text-foreground mb-2">
-                            <div>{t.nombre}</div>
+                            <div>
+                                {t.nombre}
+                                <p className="text-text-muted text-xs font-normal">{t.servicio}</p>
+                            </div>
                             <div className="text-text-muted text-sm">{t.telefono || t.correo}</div>
                             <div>{new Date(t.fecha).toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC' })}</div>
                             <div className="text-accent">{t.horario}</div>
                             <div>
                                 <span className={`px-2 py-1 rounded text-xs font-semibold ${t.estado_pago === 'pagado'
-                                        ? 'bg-accent/20 text-accent'
-                                        : 'bg-text-muted/20 text-text-muted'
+                                    ? 'bg-accent/20 text-accent'
+                                    : 'bg-text-muted/20 text-text-muted'
                                     }`}>
                                     {t.estado_pago === 'pagado' ? 'Pagado' : 'En el local'}
                                 </span>
