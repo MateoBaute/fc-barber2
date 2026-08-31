@@ -17,9 +17,9 @@ const sslEnabled = (process.env.DB_SSL ?? 'false').toLowerCase() === 'true';
 
 const db = mysql.createPool({
     host: getEnv('DB_HOST'),
-    port: parseInt(process.env.DB_PORT ?? '15715', 10),
+    port: parseInt(process.env.DB_PORT ?? '3306', 10),
     user: getEnv('DB_USER'),
-    password: getEnv('DB_PASSWORD'),
+    password: getEnv('DB_PASSWORD', false),
     database: getEnv('DB_NAME'),
     ...(sslEnabled
         ? {

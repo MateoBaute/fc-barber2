@@ -85,57 +85,6 @@ export default function Contacto() {
                     </div>
                 </div>
 
-                {/* Contact Form */}
-                {/*<div className="max-w-2xl mx-auto animate-fade-in">
-                    <div className="bg-surface border border-surface-border rounded-2xl p-8">
-                        <h2 className="text-3xl font-bold text-accent mb-6">Envíanos un mensaje</h2>
-                        <form onSubmit={handleSubmit} className="space-y-6">
-                            <div>
-                                <label className="block text-gray-300 font-semibold mb-2">Nombre</label>
-                                <input
-                                    type="text"
-                                    name="nombre"
-                                    value={formData.nombre}
-                                    onChange={handleInputChange}
-                                    required
-                                    className="w-full px-4 py-3 bg-background border border-surface-border rounded-lg text-text-secondary focus:border-accent focus:outline-none transition duration-300"
-                                    placeholder="Tu nombre"
-                                />
-                            </div>
-                            <div>
-                                <label className="block text-gray-300 font-semibold mb-2">Email</label>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    value={formData.email}
-                                    onChange={handleInputChange}
-                                    required
-                                    className="w-full px-4 py-3 bg-background border border-surface-border rounded-lg text-text-secondary focus:border-accent focus:outline-none transition duration-300"
-                                    placeholder="tu@email.com"
-                                />
-                            </div>
-                            <div>
-                                <label className="block text-gray-300 font-semibold mb-2">Mensaje</label>
-                                <textarea
-                                    name="mensaje"
-                                    value={formData.mensaje}
-                                    onChange={handleInputChange}
-                                    required
-                                    rows={5}
-                                    className="w-full px-4 py-3 bg-background border border-surface-border rounded-lg text-text-secondary focus:border-accent focus:outline-none transition duration-300 resize-none"
-                                    placeholder="Tu mensaje aquí..."
-                                />
-                            </div>
-                            <button
-                                type="submit"
-                                className="w-full py-3 bg-accent text-accent-text-on font-bold rounded-lg hover:bg-accent-strong transition duration-300 transform hover:scale-105"
-                            >
-                                Enviar Mensaje
-                            </button>
-                        </form>
-                    </div>
-                </div>*/}
-
                 {/* Team Section */}
                 <div className="space-y-8 animate-slide-up">
                     <div className="text-center">
@@ -157,8 +106,6 @@ export default function Contacto() {
                                     <Image
                                         src={barbero.img}
                                         alt={barbero.nombre}
-                                        width={400}
-                                        height={300}
                                         fill
                                         className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
                                     />
@@ -176,21 +123,6 @@ export default function Contacto() {
                                     <p className="text-gray-400 text-sm">
                                         {barbero.experiencia} de experiencia
                                     </p>
-
-                                    {/* Expandable Content 
-                                    {selectedBarbero === index && (
-                                        <div className="pt-4 space-y-3 border-t border-surface-border animate-slide-up">
-                                            <p className="text-gray-300 text-sm">
-                                                {barbero.descripcion}
-                                            </p>
-                                            <a
-                                                href={`mailto:${barbero.contacto}`}
-                                                className="block w-full text-center py-2 bg-accent text-accent-text-on font-semibold rounded-lg hover:bg-accent-strong transition duration-300"
-                                            >
-                                                Contactar
-                                            </a>
-                                        </div>
-                                    )}*/}
                                 </div>
                             </div>
                         ))}

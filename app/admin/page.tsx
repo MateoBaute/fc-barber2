@@ -3,14 +3,15 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-// Descomentamos la interfaz para evitar errores de TypeScript (any)
 interface Turno {
     id: number;
     nombre: string;
     correo: string;
     telefono: string;
     fecha: string;
-    horario: string; // Asegúrate de que coincida con tu base de datos (hora u horario)
+    horario: string;
+    servicio: string;
+    estado_pago: 'pendiente' | 'pagado';
 }
 
 
@@ -26,7 +27,7 @@ export default function AdminPanel() {
         try {
             const response = await fetch('/api/turnos', {
                 method: 'GET',
-                headers: { 'Content-Type': 'application/json' }, 
+                headers: { 'Content-Type': 'application/json' },
             });
             const data = await response.json();
 
@@ -60,12 +61,12 @@ export default function AdminPanel() {
         adminTurnos();
     }, [cambio]);
 
-    async function eliminarTurno(id:number) {
+    async function eliminarTurno(id: number) {
         try {
             const response = await fetch('/api/eliminarTurno', {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({id})
+                body: JSON.stringify({ id })
             })
 
             const data = await response.json()
@@ -106,32 +107,36 @@ export default function AdminPanel() {
 
             <div className="max-w-7xl mx-auto px-4 md:px-16">
                 <div className="grid gap-4 mb-4">
-                    <div className="hidden md:grid grid-cols-5 gap-4 bg-surface border border-surface-border rounded-lg p-4 font-bold text-text-muted text-sm">
+                    <div className="hidden md:grid grid-cols-6 gap-4 bg-surface border border-surface-border rounded-lg p-4 font-bold text-text-muted text-sm">
                         <div>Nombre</div>
                         <div>Contacto</div>
                         <div>Fecha</div>
                         <div>Hora</div>
+                        <div>Pago</div>
                         <div>Eliminar</div>
                     </div>
                 </div>
 
                 {turnos.length > 0 ? (
                     turnos.map((t) => (
-                        <div
-                            key={t.id}
-                            className="grid grid-cols-1 md:grid-cols-5 gap-4 bg-surface border border-surface-border rounded-lg p-4 text-foreground mb-2"
-                        >
-                            <div>{t.nombre}</div>
+                        <div key={t.id} className="grid grid-cols-1 md:grid-cols-6 gap-4 bg-surface border border-surface-border rounded-lg p-4 text-foreground mb-2">
+                            <div>
+                                {t.nombre}
+                                <p className="text-text-muted text-xs font-normal">{t.servicio}</p>
+                            </div>
                             <div className="text-text-muted text-sm">{t.telefono || t.correo}</div>
-                            <div>{new Date(t.fecha).toLocaleDateString('es-ES', {
-                                day: '2-digit',
-                                month: '2-digit',
-                                year: 'numeric',
-                                timeZone: 'UTC'
-                            })}</div>
+                            <div>{new Date(t.fecha).toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC' })}</div>
                             <div className="text-accent">{t.horario}</div>
                             <div>
-                                <button onClick={() => eliminarTurno(t.id)}  aria-label={`Eliminar turno ${t.id}`}
+                                <span className={`px-2 py-1 rounded text-xs font-semibold ${t.estado_pago === 'pagado'
+                                    ? 'bg-accent/20 text-accent'
+                                    : 'bg-text-muted/20 text-text-muted'
+                                    }`}>
+                                    {t.estado_pago === 'pagado' ? 'Pagado' : 'En el local'}
+                                </span>
+                            </div>
+                            <div>
+                                <button onClick={() => eliminarTurno(t.id)} aria-label={`Eliminar turno ${t.id}`}
                                     className="px-3 py-1 bg-transparent hover:bg-danger/10 text-danger hover:border-danger border border-transparent rounded text-sm font-medium transition-colors duration-150"
                                 > Eliminar turno</button>
                             </div>
