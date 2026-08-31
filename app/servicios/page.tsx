@@ -50,18 +50,6 @@ export default function Servicios() {
                                 <p className="text-text-secondary text-sm leading-relaxed">
                                     {servicio.descripcion}
                                 </p>
-
-                                <div className={`space-y-2 overflow-hidden transition-all duration-300 ${hoveredIndex === index ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
-                                    <p className="text-xs uppercase tracking-widest text-accent font-semibold">Incluye:</p>
-                                    {servicio.beneficios.map((beneficio, i) => (
-                                        <div key={i} className="flex items-center text-text-secondary text-sm">
-                                            <span className="text-accent mr-2">•</span>
-                                            {beneficio}
-                                        </div>
-                                    ))}
-                                </div>
-
-                                
                                    <a href={`/reservas?servicio=${servicio.slug}`}
                                     className="block w-full text-center mt-4 py-3 bg-accent text-accent-text-on font-bold rounded-lg hover:bg-accent-strong transition duration-300"
                                 >
