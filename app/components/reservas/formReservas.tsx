@@ -45,6 +45,25 @@ export default function FormReservas() {
     }, [searchParams]);
 
     useEffect(() => {
+        async function cargarDatosUsuario() {
+            try {
+                const response = await fetch('/api/auth/perfil');
+                const data = await response.json();
+
+                if (data.success && data.usuario) {
+                    setNombre(data.usuario.nombre ?? '');
+                    setEmail(data.usuario.correo ?? '');
+                    setTelefono(data.usuario.telefono ?? '');
+                }
+            } catch (error) {
+                console.error('Error al cargar datos del usuario logueado:', error);
+            }
+        }
+
+        cargarDatosUsuario();
+    }, []);
+
+    useEffect(() => {
         if (!fecha) return;
 
         async function obtenerHorarios() {
