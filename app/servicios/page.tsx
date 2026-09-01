@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { servicios } from '@/lib/servicios';
+import BotonWhatsapp from '../components/servicios/botonWhatsapp';
 
 export default function Servicios() {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -26,9 +27,9 @@ export default function Servicios() {
                             key={servicio.slug}
                             onMouseEnter={() => setHoveredIndex(index)}
                             onMouseLeave={() => setHoveredIndex(null)}
-                            className="group relative overflow-hidden rounded-2xl border border-surface-border hover:border-accent transition duration-300 transform hover:scale-105 bg-surface"
+                            className="group relative overflow-hidden rounded-2xl border border-surface-border hover:border-accent transition duration-300 transform hover:scale-105 bg-surface flex flex-col"
                         >
-                            <div className="relative h-56 overflow-hidden bg-background">
+                            <div className="relative h-56 overflow-hidden bg-background shrink-0">
                                 <Image
                                     src={servicio.img}
                                     alt={servicio.nombre}
@@ -43,15 +44,18 @@ export default function Servicios() {
                                 </div>
                             </div>
 
-                            <div className="p-6 space-y-4">
-                                <h2 className="text-2xl font-bold text-accent">
+                            {/* 2. Agregamos flex, flex-col y flex-grow para que este contenedor ocupe todo el espacio restante */}
+                            <div className="p-6 space-y-4 flex flex-col flex-grow">
+                                <h2 className="text-xl font-bold text-accent">
                                     {servicio.nombre}
                                 </h2>
-                                <p className="text-text-secondary text-sm leading-relaxed">
+                                <p className="text-text-secondary text-left text-sm leading-relaxed">
                                     {servicio.descripcion}
                                 </p>
-                                   <a href={`/reservas?servicio=${servicio.slug}`}
-                                    className="block w-full text-center mt-4 py-3 bg-accent text-accent-text-on font-bold rounded-lg hover:bg-accent-strong transition duration-300"
+
+                                {/* 3. Reemplazamos mt-4 por mt-auto para empujar el botón al fondo */}
+                                <a href={`/reservas?servicio=${servicio.slug}`}
+                                    className="block w-full text-center mt-auto py-3 bg-accent text-accent-text-on font-bold rounded-lg hover:bg-accent-strong transition duration-300"
                                 >
                                     Reservar
                                 </a>
@@ -68,12 +72,14 @@ export default function Servicios() {
                         Todos nuestros servicios incluyen una consulta profesional inicial.
                         Si tienes dudas sobre cuál es el mejor para ti, contáctanos.
                     </p>
-                    
-                       <a href="/contacto"
+
+                    <BotonWhatsapp />
+
+                    {/* <a href="/contacto"
                         className="inline-block px-8 py-3 bg-transparent border border-surface-border text-text-secondary font-bold rounded-lg hover:bg-white/5 hover:border-accent transition duration-300"
                     >
                         Contactar Ahora
-                    </a>
+                    </a> */}
                 </div>
             </div>
         </div>

@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "FC Barber - Tu barbería de confianza",
+  title: "Barber - Tu barbería de confianza",
   description: "Tu barbería de confianza en el corazón de la ciudad",
 };
 

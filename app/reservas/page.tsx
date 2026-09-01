@@ -11,7 +11,7 @@ export default function Reservas() {
                         Reservar Turno
                     </h1>
                     <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-                        Reserva tu turno en FC Barber de forma fácil y rápida.
+                        Reserva tu turno en Barber de forma fácil y rápida.
                         Completa el formulario y elige el horario que mejor se adapte a ti.
                     </p>
                 </div> */}
