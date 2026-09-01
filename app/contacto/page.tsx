@@ -19,7 +19,7 @@ export default function Contacto() {
             nombre: "Juan Pérez",
             especialidad: "Cortes clásicos y modernos",
             experiencia: "10 años",
-            contacto: "juan.perez@fcbarber.com",
+            contacto: "juan.perez@barber.com",
             img: "/imgBarberos/barbero1.jpg",
             descripcion: "Especialista en cortes tradicionales con acabados modernos. Su técnica precisa y atención al detalle lo hacen el favorito para clientes exigentes."
         },
@@ -27,7 +27,7 @@ export default function Contacto() {
             nombre: "María Gómez",
             especialidad: "Barbas y afeitados",
             experiencia: "8 años",
-            contacto: "maria.gomez@fcbarber.com",
+            contacto: "maria.gomez@barber.com",
             img: "/imgBarberos/barbero2.jpg",
             descripcion: "Experta en diseño de barbas y afeitados tradicionales. Conoce todas las técnicas para mantener tu barba impecable."
         },
@@ -35,7 +35,7 @@ export default function Contacto() {
             nombre: "Carlos Rodríguez",
             especialidad: "Cortes creativos y de tendencia",
             experiencia: "5 años",
-            contacto: "carlos.rodriguez@fcbarber.com",
+            contacto: "carlos.rodriguez@barber.com",
             img: "/imgBarberos/barbero3.jpg",
             descripcion: "Artista del corte con visión creativa. Siempre atento a las últimas tendencias y estilos internacionales de moda."
         }
@@ -81,7 +81,7 @@ export default function Contacto() {
                     </div>
                     <div className="p-6 bg-surface border border-surface-border rounded-lg hover:border-accent transition duration-300 text-center">
                         <h3 className="text-xl font-bold text-accent mb-2">Email</h3>
-                        <p className="text-text-secondary break-words">info@fcbarber.com<br />reservas@fcbarber.com</p>
+                        <p className="text-text-secondary break-words">info@barber.com<br />reservas@barber.com</p>
                     </div>
                 </div>
 
@@ -90,7 +90,7 @@ export default function Contacto() {
                     <div className="text-center">
                         <h2 className="text-4xl font-bold text-accent mb-4">Nuestro Equipo</h2>
                         <p className="text-text-secondary max-w-2xl mx-auto">
-                            Conoce a los barberos profesionales que hacen de FC Barber un lugar especial.
+                            Conoce a los barberos profesionales que hacen de Barber un lugar especial.
                         </p>
                     </div>
 

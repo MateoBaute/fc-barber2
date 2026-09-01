@@ -26,7 +26,7 @@ export default function Home() {
         </div>
 
         <p className="text-text-secondary text-lg leading-relaxed max-w-2xl mx-auto">
-          Bienvenido a FC Barber, donde la tradición y la excelencia se encuentran.
+          Bienvenido a Barber, donde la tradición y la excelencia se encuentran.
           Nuestros barberos profesionales te ofrecen servicios de calidad premium
           en un ambiente elegante y acogedor.
         </p>

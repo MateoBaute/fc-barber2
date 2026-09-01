@@ -11,7 +11,7 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                     {/* Branding */}
                     <div className="space-y-4">
-                        <h3 className="text-2xl font-bold text-accent">✂️ FC Barber</h3>
+                        <h3 className="text-2xl font-bold text-accent">Barber</h3>
                         <p className="text-text-secondary text-sm">
                             Tu barbería de confianza. Donde la tradición y la excelencia se encuentran.
                         </p>
@@ -69,7 +69,7 @@ export default function Footer() {
                         <div className="space-y-2 text-sm text-text-secondary">
                             <p>📍 Calle Principal 123</p>
                             <p>📞 +598 2 1234 5678</p>
-                            <p>✉️ info@fcbarber.com</p>
+                            <p>✉️ info@barber.com</p>
                             <p>⏰ Lun-Sab: 9:00-19:00</p>
                         </div>
                     </div>
@@ -77,7 +77,7 @@ export default function Footer() {
 
                 {/* Bottom Bar */}
                 <div className="border-t border-surface-border pt-8 text-center text-text-muted text-sm space-y-2">
-                    <p>© {currentYear} FC Barber. Todos los derechos reservados.</p>
+                    <p>© {currentYear} Barber. Todos los derechos reservados.</p>
                     <p className="text-xs">
                         Hecho por Mateo Baute | 
                         <Link href="#" className="text-accent hover:text-accent-strong mx-1">Privacidad</Link>
