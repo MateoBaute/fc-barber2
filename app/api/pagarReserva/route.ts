@@ -50,6 +50,7 @@ export async function POST(request: Request) {
                     fecha: fecha,
                     horario: horario,
                     servicio: servicioObj.nombre,
+                    precio: servicioObj.precio,
                 },
                 back_urls: {
                     success: "https://repo-barber.vercel.app/pago/success",

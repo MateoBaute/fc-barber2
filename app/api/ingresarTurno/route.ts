@@ -26,8 +26,8 @@ export async function POST(request: Request) {
         const usuario = await obtenerUsuarioSesion();
 
         await db.query(
-            "INSERT INTO turnos (usuario_id, nombre, correo, telefono, fecha, horario, servicio, estado_pago) VALUES (?, ?, ?, ?, ?, ?, ?, 'pendiente')",
-            [usuario?.userId ?? null, nombre, email, telefono, fecha, horario, servicioObj.nombre]
+            "INSERT INTO turnos (usuario_id, nombre, correo, telefono, fecha, horario, servicio, precio, estado_pago) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'pendiente')",
+            [usuario?.userId ?? null, nombre, email, telefono, fecha, horario, servicioObj.nombre, servicioObj.precio]
         );
 
         return NextResponse.json({
