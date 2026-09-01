@@ -189,24 +189,12 @@ export default function FormReservas() {
 
     return (
         <div className="w-full space-y-8">
-            {/* Paso 1: Elegir servicio */}
-            <div className="space-y-6">
-                <div className="flex items-center space-x-3 mb-6">
-                    <div className="w-10 h-10 rounded-full bg-accent text-accent-text-on font-bold flex items-center justify-center">
-                        1
-                    </div>
-                    <h3 className="text-2xl font-bold text-accent">Elegí tu Servicio</h3>
-                </div>
-
-
-            </div>
-
             {/* Paso 2: Información Personal */}
 
             <div className="space-y-6 animate-slide-up">
                 <div className="flex items-center space-x-3 mb-6">
                     <div className="w-10 h-10 rounded-full bg-accent text-accent-text-on font-bold flex items-center justify-center">
-                        2
+                        1
                     </div>
                     <h3 className="text-2xl font-bold text-accent">Tu Información</h3>
                 </div>
@@ -234,7 +222,7 @@ export default function FormReservas() {
                             >
                                 {servicioSeleccionado ? (
                                     <div className="min-w-0 flex-1">
-                                        <p className="text-white text-base text-s truncate">{servicioSeleccionado.nombre}</p>
+                                        <p className="text-white/40 text-base text-s truncate">{servicioSeleccionado.nombre}</p>
                                     </div>
                                 ) : (
                                     <span className="text-text-secondary ">Selecciona un servicio</span>
@@ -242,7 +230,7 @@ export default function FormReservas() {
 
                                 <div className="flex items-center gap-3 shrink-0">
                                     {servicioSeleccionado && (
-                                        <span className=" rounded-full bg-accent/10 text-accent text-s ">
+                                        <span className=" rounded-full text-accent text-s ">
                                             ${servicioSeleccionado.precio}
                                         </span>
                                     )}
@@ -329,7 +317,7 @@ export default function FormReservas() {
                 <div className="space-y-6 animate-slide-up">
                     <div className="flex items-center space-x-3 mb-6">
                         <div className="w-10 h-10 rounded-full bg-accent text-accent-text-on font-bold flex items-center justify-center">
-                            3
+                            2
                         </div>
                         <h3 className="text-2xl font-bold text-accent">Elige tu Horario</h3>
                     </div>
@@ -369,7 +357,7 @@ export default function FormReservas() {
                 <div className="space-y-6 animate-slide-up">
                     <div className="flex items-center space-x-3 mb-6">
                         <div className="w-10 h-10 rounded-full bg-accent text-accent-text-on font-bold flex items-center justify-center">
-                            4
+                            3
                         </div>
                         <h3 className="text-2xl font-bold text-accent">¿Cómo querés pagar?</h3>
                     </div>
@@ -452,7 +440,7 @@ export default function FormReservas() {
                 <div className="space-y-6">
                     <div className="flex items-center space-x-3 mb-6">
                         <div className="w-10 h-10 rounded-full bg-accent text-accent-text-on font-bold flex items-center justify-center">
-                            5
+                            4
                         </div>
                         <h3 className="text-2xl font-bold text-accent">
                             {metodoPago === 'online' ? 'Confirmar y Pagar' : 'Confirmar Reserva'}
@@ -480,7 +468,6 @@ export default function FormReservas() {
 
                     {metodoPago === 'online' ? (
                         <div className="p-6 bg-surface border border-surface-border rounded-xl space-y-3 text-center">
-                            <h3 className="text-lg font-bold text-accent">Reserva Segura</h3>
                             <p className="text-accent-strong font-semibold">Pago 100% Seguro</p>
                             <p className="text-text-secondary text-sm">Tu información está protegida</p>
                             <p className="text-text-muted text-xs">El pago se procesa a través de Mercado Pago</p>

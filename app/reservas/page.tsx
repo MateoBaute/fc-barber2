@@ -6,7 +6,7 @@ export default function Reservas() {
         <div className="w-full py-12">
             <div className="max-w-4xl mx-auto space-y-8 animate-slide-up">
                 {/* Header */}
-                <div className="text-center space-y-4">
+                {/* <div className="text-center space-y-4">
                     <h1 className="text-5xl md:text-6xl font-bold text-accent">
                         Reservar Turno
                     </h1>
@@ -14,17 +14,21 @@ export default function Reservas() {
                         Reserva tu turno en FC Barber de forma fácil y rápida.
                         Completa el formulario y elige el horario que mejor se adapte a ti.
                     </p>
-                </div>
+                </div> */}
 
                 {/* Steps */}
                 <div className="space-y-4 animate-slide-up w-full">
-                    <h3 className="text-2xl font-bold text-accent text-center mb-8">Cómo reservar</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-4">
+                    <h2 className="text-4xl font-bold text-accent text-center mb-2">Cómo reservar</h2>
+                    <p className="text-lg text-text-secondary max-w-2xl mx-auto mb-7">
+                        Reserva tu turno en Barber de forma fácil y rápida.
+                        Completa el formulario y elige el horario que mejor se adapte a ti.
+                    </p>
+                    <div className=" grid grid-cols-1 md:grid-cols-4">
                         {[
-                            { numero: "1", titulo: "Elegí tu Servicio", desc: "Corte de pelo, barba, etc." },
-                            { numero: "2", titulo: "Tu Información", desc: "Nombre, Apellido, Número, etc." },
-                            { numero: "3", titulo: "Elige tu Horario", desc: "Horas disponibles se cargan automáticamente" },
-                            { numero: "4", titulo: "Elegí cómo pagar", desc: "Pagar con tarjeta, Pagar en el local, etc." },
+                            { numero: "1", titulo: "Tu Información", desc: "Nombre, Apellido, Número, Servicio ..." },
+                            { numero: "2", titulo: "Elige tu Horario", desc: "Horas disponibles se cargan automáticamente" },
+                            { numero: "3", titulo: "Elegí cómo pagar", desc: "Pagar con tarjeta, Pagar en el local" },
+                            { numero: "4", titulo: "Confirma y Paga", desc: "Paga de forma segura con tarjeta o en el local" },
                         ].map((paso, index) => (
                             <div key={index} className="text-center space-y-3">
                                 <div className="w-10 h-10 rounded-full bg-accent text-accent-text-on font-bold text-lg flex items-center justify-center mx-auto">

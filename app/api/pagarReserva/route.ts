@@ -52,9 +52,9 @@ export async function POST(request: Request) {
                     servicio: servicioObj.nombre,
                 },
                 back_urls: {
-                    success: "https://fc-barber.vercel.app/pago/success",
-                    failure: "https://fc-barber.vercel.app/pago/failure",
-                    pending: "https://fc-barber.vercel.app/pago/pending",
+                    success: "https://repo-barber.vercel.app/pago/success",
+                    failure: "https://repo-barber.vercel.app/pago/failure",
+                    pending: "https://repo-barber.vercel.app/pago/pending",
                 },
                 auto_return: "approved"
             },

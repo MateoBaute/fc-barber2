@@ -66,7 +66,7 @@ export default function Header() {
         <header className="w-full sticky top-0 z-50 backdrop-blur-md bg-surface/95 border-b border-surface-border">
             <nav className="m-auto flex max-w-6xl justify-between items-center py-4 px-4 md:px-16">
                 <Link href="/" className="cursor-pointer text-3xl font-bold text-accent hover:text-accent-strong transition duration-300">
-                    FC Barber
+                    Barber
                 </Link>
 
                 <div className="hidden md:flex items-center space-x-8">
